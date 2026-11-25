@@ -33,4 +33,21 @@ one concrete checkable truth (2M tokens spent, prod still down); fresh mechanism
 
 ## Trials
 
-- T1: `node main.ts` → /output/entry.txt must contain exactly the 37-char entry.
+- T1: `node main.ts` → /output/entry.txt contains exactly the 37-char entry
+  (`a2c8153a3a13b5e39c4d965625192c77`, 37 bytes). PASS.
+- T2 (bundle v1, 01:24 WITA): `bundle --repo <local path> --session <own session>
+  --no-discover --no-family --prompt-file prompt-3am.txt --prompt-origin other
+  --prompt-via "subagent handoff from parent orchestrator" --harness muse-app
+  --harness-version 1.3 --provider meta --model muse-spark-1.3 --effort default
+  --mcp none --redact "Septian Panjaya"` → 199,358 B, sha256
+  `8120c3b7e5f5ddbc1830adb8a05ef47d7c2200eb96a7336741639e7361038ccf`.
+  "0 usage rows attached" (expected: subagent rows flush when the run ends;
+  coordinator re-bundles with --muse-usage).
+- T3 (check v1 on commit `893601e8…`): 12 passed / 2 failed / 5 skipped.
+  PASS: thinking_wellformed, thinking_in_window, thinking_reproduces 97.2%
+  (72/74 lines, main.ts 32 authored lines), thinking_turns (26), thinking_own_work.
+  FAIL: thinking_priced (0 usage rows — coordinator re-bundle) and
+  thinking_revised (every file written once). This trial-log revision is the
+  genuine fix for thinking_revised: re-commit, re-bundle v2, re-check.
+  Repo HEAD = ls-remote `893601e8…`; About verified (homepage + topics
+  makefun/ai-agents/bounties); README 3 live badges, 0 shields; owner.json present.
