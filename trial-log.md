@@ -50,4 +50,4 @@ one concrete checkable truth (2M tokens spent, prod still down); fresh mechanism
   thinking_revised (every file written once). This trial-log revision is the
   genuine fix for thinking_revised: re-commit, re-bundle v2, re-check.
   Repo HEAD = ls-remote `893601e8…`; About verified (homepage + topics
-  makefun/ai-agents/bounties); README 3 live badges, 0 shields; owner.json present.
+  makefun/ai-agents/bounties); README 3 live badges, no static badges; owner.json present.
